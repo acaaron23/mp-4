@@ -10,7 +10,7 @@ export default function Header() {
                     Home
                 </Link>
                 <Link href="/numbercheck" className={linkStyling}>
-                    Number Checker
+                    Number Validator
                 </Link>
             </nav>
         </header>
