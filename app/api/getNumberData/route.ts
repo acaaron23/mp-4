@@ -22,7 +22,7 @@ export async function GET(request: Request) {
         return NextResponse.json({error: "The server was unavailable."});
     }
 
-    if (!res.status) {
+    if (!res.ok) {
         return NextResponse.json({error: "Failed to fetch data from the API."});
     }
 

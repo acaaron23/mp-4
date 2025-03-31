@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Phone Number Checker",
+    title: "Phone Number Validity Checker",
     description: "App meant to allow users to check the validity of phone numbers.",
 };
 export default function RootLayout({children,}: Readonly<{

@@ -13,22 +13,24 @@ export default function Number(){
                 .then((res) => res.json())
     );
 
-    if(error) return <h1>This {error} happened</h1>
+    if(error) return <h1> Error: {error} happened :( </h1>
     if(!data) return <h1>Loading...</h1>
 
     const phoneData = data.data;
 
     return (
-        <div className = "flex justify-between items-center h-20" >
-            <PhoneNumberInfo
-                key={phoneData.phone}
-                local={phoneData.format.local}
-                valid={phoneData.valid}
-                countryName={phoneData.country.name}
-                location={phoneData.location}
-                type={phoneData.type}
-                carrier={phoneData.carrier}
-            />
+        <div className="flex flex-col items-center justify-center bg-blue-200 h-100">
+            <div className = "flex flex-col items-center justify-center h-20" >
+                <PhoneNumberInfo
+                    key={phoneData.phone}
+                    local={phoneData.format.local}
+                    valid={phoneData.valid}
+                    countryName={phoneData.country.name}
+                    location={phoneData.location}
+                    type={phoneData.type}
+                    carrier={phoneData.carrier}
+                />
+            </div>
         </div>
     );
 }
