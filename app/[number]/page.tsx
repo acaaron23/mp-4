@@ -19,18 +19,16 @@ export default function Number(){
     const phoneData = data.data;
 
     return (
-        <div className="flex flex-col items-center justify-center bg-blue-200 h-100">
-            <div className = "flex flex-col items-center justify-center h-20" >
-                <PhoneNumberInfo
-                    key={phoneData.phone}
-                    local={phoneData.format.local}
-                    valid={phoneData.valid}
-                    countryName={phoneData.country.name}
-                    location={phoneData.location}
-                    type={phoneData.type}
-                    carrier={phoneData.carrier}
-                />
-            </div>
+        <div className="flex flex-col items-center justify-center bg-blue-200 h-200">
+            <PhoneNumberInfo
+                key={phoneData.phone}
+                local={phoneData.format.local}
+                valid={phoneData.valid}
+                countryName={phoneData.country.name}
+                location={phoneData.location}
+                type={phoneData.type}
+                carrier={phoneData.carrier}
+            />
         </div>
     );
 }

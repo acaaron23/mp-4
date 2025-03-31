@@ -5,8 +5,8 @@ import { NextResponse } from "next/server"
 const NUMBER_API_KEY = process.env.NUMBER_API_KEY;
 
 export async function GET(request: Request) {
-    const url  = new URL(request.url);
-    const phoneNumber = url.searchParams.get("phone");
+    const url = new URL(request.url);
+    const phoneNumber= url.searchParams.get("phone");
 
     if (!phoneNumber) {
         return NextResponse.json({ error: "No phone number provided"});
