@@ -5,6 +5,28 @@ import Link from "next/link";
 
 export default function NumberCheck(){
     const [number, setNumber] = useState("");
+    const [error, setError] = useState("");
+
+    const validate = () => {
+        if (isNaN(Number(number))) {
+            setError("Invalid format, please enter a number!");
+            return false;
+        }
+
+        if (number.length < 7 || number.length > 11) {
+            setError("Please enter a valid number that is between 7 to 10 digits long!");
+            return false;
+        }
+
+        setError("");
+        return true;
+    };
+
+    const check = (e: { preventDefault: () => void; }) => {
+        if (!validate()) {
+            e.preventDefault();
+        }
+    };
 
     return (
         <div className="flex flex-col items-center justify-center bg-blue-200 h-200">
@@ -22,7 +44,16 @@ export default function NumberCheck(){
                     className = "w-full bg-white border-black border-4 rounded-2xl text-3xl p-2 mt-2"
                     onChange={(e) => setNumber(e.target.value)}
                 />
-                <Link href={`/${number}`} className="w-1/2 text-white text-3xl text-center rounded-xl bg-green-600 hover:bg-green-500 p-2 mt-2">
+
+                <p className="text-red-500 text-center">
+                    {error ? error : ""}
+                </p>
+
+                <Link
+                    href={`/${number}`}
+                    className="w-1/2 text-white text-3xl text-center rounded-xl bg-green-600 hover:bg-green-500 p-2 mt-2"
+                    onClick={check}
+                >
                     Check Number
                 </Link>
             </div>

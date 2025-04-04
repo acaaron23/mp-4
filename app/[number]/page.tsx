@@ -13,10 +13,37 @@ export default function Number(){
                 .then((res) => res.json())
     );
 
-    if(error) return <h1> Error: {error} happened :( </h1>
-    if(!data) return <h1>Loading...</h1>
+    if (error){
+        return(
+            <div className="flex flex-col items-center justify-center bg-blue-200 h-200">
+                <div className="flex flex-col items-center bg-white border-black border-3 p-12 rounded-4xl">
+                    <h1 className= "text-4xl" > Error: {error}! </h1>
+                </div>
+            </div>
+        );
+    }
+
+    if (!data){
+        return(
+            <div className="flex flex-col items-center justify-center bg-blue-200 h-200">
+                <div className="flex flex-col items-center bg-white border-black border-3 p-12 rounded-4xl">
+                    <h1 className= "text-4xl" > Loading... </h1>
+                </div>
+            </div>
+        );
+    }
 
     const phoneData = data.data;
+
+    if (!phoneData) {
+        return(
+             <div className="flex flex-col items-center justify-center bg-blue-200 h-200">
+                <div className="flex flex-col items-center bg-white border-black border-3 p-12 rounded-4xl">
+                    <h1 className= "text-4xl" > Phone data for this number is not available. </h1>
+                </div>
+             </div>
+        );
+    }
 
     return (
         <div className="flex flex-col items-center justify-center bg-blue-200 h-200">
